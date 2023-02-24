@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_21_130559) do
+ActiveRecord::Schema.define(version: 2023_02_24_060358) do
+
+  create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "recipe_name", null: false
+    t.integer "servings_id", null: false
+    t.integer "category_id", null: false
+    t.string "ingredients1", null: false
+    t.string "ingredients2"
+    t.string "ingredients3"
+    t.string "ingredients4"
+    t.string "ingredients5"
+    t.string "ingredients6"
+    t.string "cooking_instructions1", null: false
+    t.string "cooking_instructions2"
+    t.string "cooking_instructions3"
+    t.string "cooking_instructions4"
+    t.string "cooking_instructions5"
+    t.string "cooking_instructions6"
+    t.text "remarks"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", default: "", null: false
@@ -25,4 +48,5 @@ ActiveRecord::Schema.define(version: 2023_02_21_130559) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "recipes", "users"
 end
