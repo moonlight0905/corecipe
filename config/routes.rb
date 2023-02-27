@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources  :recipes, only: :index
+  root to: 'recipes#index'
+  resources :recipes do
+    collection do
+      get 'search'
+    end
+  end 
 end
