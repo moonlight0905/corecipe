@@ -1,4 +1,6 @@
 class CategoryId < ActiveHash::Base
+  include ActiveHash::Associations
+  has_many :recipes
   self.data = [
     { id: 1, name: 'メインのおかず' },
     { id: 2, name: 'サブのおかず' },

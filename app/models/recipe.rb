@@ -1,7 +1,10 @@
 class Recipe < ApplicationRecord
-  belongs_to :user
-  has_one_attached :image
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
+  belongs_to_active_hash :servings
 
+
+  has_one_attached :image
     def self.search(search)
       if search != ""
         search = "%#{search}%"
@@ -10,4 +13,6 @@ class Recipe < ApplicationRecord
         Tweet.all
       end
     end
+
+  belongs_to :user
 end

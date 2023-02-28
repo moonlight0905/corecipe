@@ -1,4 +1,6 @@
 class ServingsId < ActiveHash::Base
+  include ActiveHash::Associations
+  has_many :recipes
   self.data = [
     { id: 1, name: '４人分' },
     { id: 2, name: '１人分' },
