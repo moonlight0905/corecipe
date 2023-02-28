@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Corecipe</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +12,48 @@
   </head>
 
   <body>
+    <header class="header">
+    <nav class="navbar navbar-expand navbar-light" style="background-color:#ffc0bd" >
+    <div class="container">
+      <a class="navbar-brand" href="/">Corecipe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav me-auto">
+          <% unless user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/users/sign_in">ログイン</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/users/sign_up">会員登録</a>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">レシピを投稿する</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">マイページ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/users/sign_out">ログアウト</a>
+          </li>
+          <% end %>
+        </ul>
+       <%= form_with(url: search_recipes_path, local: true, method: :get, class: "search-form") do |form| %>
+       <%= form.text_field :keyword, placeholder: "レシピを検索する", class: "search-input" %>
+       <%= form.submit "検索", class: "search-btn" %>
+       <% end %>
+      </div>
+    </div>
+  </nav>
+    </header>
     <%= yield %>
+    <footer>
+      <p>
+    
+      </p>
+    </footer>
   </body>
 </html>
