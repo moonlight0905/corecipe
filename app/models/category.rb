@@ -1,4 +1,4 @@
-class CategoryId < ActiveHash::Base
+class Category < ActiveHash::Base
   include ActiveHash::Associations
   has_many :recipes
   self.data = [
