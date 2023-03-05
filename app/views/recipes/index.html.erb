@@ -1,43 +1,22 @@
 <main>
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">レシピ一覧</h1>
-      </div>
-    </div>
-  </section>
-  
-  <div class="container">
-
+  <p class="fs-3 text-dark text-center my-1">レシピ一覧</p>
+<div class="img-hidden">
+  <%= image_tag'hero_image.jpg',class:"img-fluid w-100"%>
+</div>
+ 
     <!-- レシピ一覧 -->
-    <div class="row">
+
     <% @recipes.each do |recipe| %>
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-        <%= recipe.image %>
-        <h3><%= recipe.recipe_name %></h3>
-        <p><%= recipe.remarks %></p>
-        <p><a class="btn btn-secondary" href="#">詳細ページへ &raquo;</a></p>
+      <div class="card" style="width: 18rem;">
+       <svg class="bd-placeholder-img rounded-circle" width="150" height="150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><%= recipe.image %></svg> 
+       <div class="card-body">
+        <h3 class="card-title"><%= recipe.recipe_name %></h3>
+        <p class="card-text"><%= recipe.remarks %></p>
+        <a href="#" class="btn btn-secondary">詳細ページへ &raquo;</a>
+       </div>
       </div>
-      <% end %><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h3>Heading</h3>
-        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h3>Heading</h3>
-        <p>And lastly this, the third column of representative placeholder content.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
-  </div>
-
+    <% end %>  
+  
 </main>
 
   
