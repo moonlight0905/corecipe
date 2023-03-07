@@ -1,55 +1,45 @@
-# テーブル設計
-
-## users テーブル
-
-| Column                | Type   | Options                   |
-| --------------------- | ------ | ------------------------- |
-| nickname              | string | null: false               |
-| email                 | string | null: false, unique: true |
-| encrypted_password    | string | null: false               |
-
-### Association
-
-- has_many :recipes
-- has_many :comments
-
-## recipes テーブル
-
-| Column                | Type        | Options                        |
-| --------------------- | ----------- | ------------------------------ |
-| recipe_name           | varchar     | null: false                    |
-| category_id           | integer     | null: false                    |
-| servings_id           | integer     | null: false                    |
-| ingredients1          | string      | null: false                    |
-| ingredients2          | string      |                                |
-| ingredients3          | string      |                                |
-| ingredients4          | string      |                                |
-| ingredients5          | string      |                                |
-| ingredients6          | string      |                                |
-| cooking_instructions1 | string      | null: false                    |
-| cooking_instructions2 | string      |                                |
-| cooking_instructions3 | string      |                                |
-| cooking_instructions4 | string      |                                |
-| cooking_instructions5 | string      |                                |
-| cooking_instructions6 | string      |                                |
-| remarks               | text        | null: false                    |
-| user                  | references  | null: false, foreign_key: true |
-
-### Association
-
-- has_many :comments
-- belongs_to :user
-
-## comments テーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| user     | references | null: false, foreign_key: true |
-| recipe   | references | null: false, foreign_key: true |
-| text     | text       | null: false                    |
-
-### Association
-
-- belongs_to :user
-- belongs_to :recipe
-
+# アプリケーション名
+Corecipe
+# アプリケーション概要
+料理のレシピを共有して、ユーザー同士でコミュニケーションをとることで、手軽に情報交換することができます。
+# URL
+https://corecipe.onrender.com
+# テスト用アカウント
+・Basic認証パスワード：0905<br>
+・Basic認証ID：admin<br>
+・メールアドレス：test1@test.com<br>
+・パスワード：test1test1
+# 利用方法
+## レシピ投稿
+1.トップページ（一覧ページ）のヘッダーからユーザー新規登録を行います<br>
+2.「レシピを投稿する」ボタンから、レシピの内容（名前・画像・コメント欄・カテゴリー・分量・材料・料理工程）を入力し「投稿する」ボタンを押します
+## レシピ検索
+トップページのヘッダーにある検索フォームにキーワードを入力して検索します
+## コメントする
+詳細ページの下部にあるコメントフォームにそのレシピについての感想・意見などを入力し「コメントする」ボタンを押します
+# アプリケーションを作成した背景
+家に自分が興味を持ったレシピのメモ書きが大量に貯まっていて、整理しようと思いました。また知人とおすすめレシピを教え合うことがあり、そうした情報を口頭だけでなく記録に残す形で共有できたら便利だなと思いました。
+# 洗い出した要件
+[![Image from Gyazo](https://i.gyazo.com/a250bbb5be514b2f284723515d9f9459.jpg)](https://gyazo.com/a250bbb5be514b2f284723515d9f9459)
+# 実装した機能についての画像やGIFおよびその説明
+# 実装予定の機能
+今後は新規レシピを投稿すると、ユーザーのLINEアカウントにお知らせが届く機能を実装予定です。
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/427cb48531741494557db49d7e1bc759.png)](https://gyazo.com/427cb48531741494557db49d7e1bc759)
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/997da88b4d59d20e3b8bf6c1a7d35dc5.png)](https://gyazo.com/997da88b4d59d20e3b8bf6c1a7d35dc5)
+# 開発環境
+・フロントエンド HTML, CSS, Javascript, Bootstrap<br>
+・バックエンド Ruby, Ruby on Rails<br> 
+・インフラ Render, Postgresql<br>
+・テスト RSpec<br>
+・テキストエディタ Visual Studio Code<br>
+・タスク管理  GitHub
+# ローカルでの動作方法
+以下のコマンドを順に実行。<br>
+% git clone https://github.com/moonlight0905/corecipe<br>
+% cd ・・・・・<br> 
+% bundle install<br>
+% yarn install
+# 工夫したポイント
+保守運用しやすくするために、簡潔で分かりやすいコーディングを心がけました。フロントサイドについては、食がテーマのアプリケーションなので、食欲をそそる配色を採用しました。
