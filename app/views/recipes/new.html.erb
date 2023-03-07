@@ -1,0 +1,74 @@
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <h2>レシピの情報を入力してください</h2>
+    </div>
+    <%= form_with model: @recipe, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: @recipe %>
+
+    <%# 商品画像 %>
+    <div class="img-upload">
+      <div class="fw-bold text-center">
+        料理画像
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+    <%# /商品画像 %>
+
+    <%# レシピ名と備考欄 %>
+    <div class="col">
+      <div class="fw-bold text-center">
+        レシピの名前
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :recipe_name, class:"items-text", id:"item-name", placeholder:"レシピの名前（必須 40文字まで)", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          コメント欄
+        </div>
+        <%= f.text_area :remarks, class:"items-text", id:"item-info", placeholder:"レシピの説明、注意点など,ご自由にどうぞ!（任意 1000文字まで）" , maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /レシピ名と備考欄 %>
+
+    <%# カテゴリーと分量 %>
+    <div class="items-detail">
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="weight-bold-text">
+          分量
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:servings_id, Servings.all, :id, :name, {}, {class:"select-box", id:"item-servings"}) %>
+      </div>
+    </div>
+    <%# /カテゴリーと分量 %>
+
+    <%# 材料 %>
+    <div class="items-detail">
+     <div class="weight-bold-text">
+        材料１
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :ingredients1, placeholder:"例）鶏もも肉200g", maxlength:"40" %>
+
+    <%# 下部ボタン %>
+    <div class="btn-contents">
+      <%= f.submit "レシピを投稿する", class:"btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+ </main>
+</div>
