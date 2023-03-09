@@ -13,8 +13,6 @@
 /* 商品画像 */
 .img-upload {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
   padding: 2vh 0;
 }
 
@@ -29,28 +27,33 @@
 
 /* /商品画像 */
 
+.select-box {
+  justify-content: center;
+}
+
 /* 下部ボタン */
 .btn-contents {
-  width: 100%;
-  text-align: center;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  background-color: #ffc0bd;
 }
 
 .btn {
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
-  width: 100%;
+  border: 1px solid #ffc0bd;
+  color:black;
+  width: 50vw;
   height: 50px;
   font-size: 14px;
   margin-bottom: 4vh;
 }
 
 .back-btn {
-  background: #aaa;
-  border: 1px solid #aaa;
-  color: #fff;
-  padding: 15px 35%;
+  background-color:darkgray;
+  border: 1px solid darkgray;
+  color:black;
   text-decoration: none;
+  text-align: center;
 }
 
 /* /下部ボタン */

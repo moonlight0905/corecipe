@@ -4,6 +4,14 @@
   object-fit: cover;
 }
 
+.show-btn {
+  background-color:#ffc0bd;
+  border: 1px solid #ffc0bd;
+  color:black;
+  text-decoration: none;
+  text-align: center;
+}
+
 .container-m {
   margin-top: 80px;
 }
