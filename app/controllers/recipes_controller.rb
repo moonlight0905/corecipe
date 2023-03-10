@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only:[:show, :edit, :update, :correct_recipe]
+  before_action :set_recipe, only:[:show, :edit, :update, :destroy, :correct_recipe]
   before_action :correct_recipe, only:[:edit, :destroy]
 
   def index
@@ -24,21 +24,28 @@ class RecipesController < ApplicationController
   end
 
   def show
-    set_recipe
   end
 
   def edit
-    set_recipe
   end
 
   def update
-    set_recipe
     @recipe.update(recipe_params)
     if @recipe.save
       redirect_to recipe_path(@recipe.id)
     else
       render "edit"
     end 
+  end
+
+  def destroy
+    @recipe.destroy
+  end
+
+  def correct_recipe
+    unless user_signed_in? && @recipe.user == current_user
+      redirect_to root_path
+    end
   end
 
   private
@@ -50,9 +57,4 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-  def correct_recipe
-    unless user_signed_in? && @recipe.user == current_user
-      redirect_to root_path
-    end
-  end
 end
