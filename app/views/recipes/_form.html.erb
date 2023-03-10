@@ -1,0 +1,171 @@
+<%= form_with model: @recipe, local: true do |f| %>
+
+    <%= render 'devise/shared/error_messages', resource: @recipe %>
+
+    <%# 商品画像 %>
+      <h4 class="fw-bold text-center">
+        料理画像
+      </h4>
+      <div class="row click-upload justify-content-center">
+       <div class="col-3">
+        <p class="fs-6">
+          クリックでファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+       </div>
+      </div>
+    <%# /商品画像 %>
+
+    <%# レシピ名と備考欄 %>
+    <div class="row justify-content-center">
+      <h4 class="mt-5 fw-bold text-center">
+        レシピの名前
+        <span class="indispensable">必須</span>
+      </h4>
+      <div class="col-4">
+      <%= f.text_field :recipe_name, id:"item-name", placeholder:"レシピの名前（必須 40文字まで)", maxlength:"40" %>
+      </div>
+      <div class="row justify-content-center">
+       <div class="col-3">
+        <h4 class="mt-5 fw-bold text-center">
+          コメント欄
+        </h4>
+        <%= f.text_area :remarks, id:"item-info", placeholder:"レシピの説明、注意点など、ご自由にどうぞ！（任意 1000文字まで）" , maxlength:"1000" %>
+       </div>
+      </div>
+    </div>
+    <%# /レシピ名と備考欄 %>
+
+    <%# カテゴリーと分量 %>
+    <div class="row justify-content-center">
+      <h4 class="mt-5 fw-bold text-center">
+        カテゴリー
+        <span class="indispensable">必須</span>
+      </h4>
+      <div class="col-2">
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <h4 class="mt-5 fw-bold text-center">
+        分量
+        <span class="indispensable">必須</span>
+      </h4>
+      <div class="col-1">
+      <%= f.collection_select(:servings_id, Servings.all, :id, :name, {}, {class:"select-box", id:"item-servings"}) %>
+      </div>
+    </div>    
+    <%# /カテゴリーと分量 %>
+
+    <%# 材料と料理手順 %>
+    <div class="row">
+        <h4 class="mt-5 fw-bold text-center">
+          材料
+        </h4>
+          <div class="col-6 mb-3">
+           <label class="form-label fw-bold">
+            材料１<span class="indispensable">必須</span>
+           </label>
+           <%= f.text_field :ingredients1, placeholder:"例）鶏もも肉 200g（必須 40文字まで)", maxlength:"40" %>
+          </div> 
+          <div class="col-6 mb-3">
+           <label class="form-label fw-bold">
+            材料２
+           </label>
+           <%= f.text_field :ingredients2, placeholder:"例）トマト ２個（任意 40文字まで)", maxlength:"40" %>
+          </div> 
+          <div class="col-6 mb-3">
+           <label class="form-label fw-bold">
+            材料３
+           </label>
+           <%= f.text_field :ingredients3, placeholder:"例）玉ねぎ 1/2個（任意 40文字まで)", maxlength:"40"%>
+          </div> 
+          <div class="col-6 mb-3">
+           <label class="form-label fw-bold">
+            材料４
+           </label>
+           <%= f.text_field :ingredients4, placeholder:"例）オリーブ油 大さじ１（任意 40文字まで)", maxlength:"40" %>
+          </div> 
+          <div class="col-6 mb-3">
+           <label class="form-label fw-bold">
+            材料５
+           </label>
+           <%= f.text_field :ingredients5, placeholder:"例）固形コンソメ １個（任意 40文字まで)", maxlength:"40" %>
+          </div> 
+          <div class="col-6 mb-3">
+           <label class="form-label fw-bold">
+            材料６
+           </label>
+           <%= f.text_field :ingredients6, placeholder:"例）塩 少々（任意 40文字まで)", maxlength:"40"%>
+          </div>
+    </div>
+    <div class="row">
+        <h4 class="mt-5 fw-bold text-center">
+          料理手順
+        </h4>
+         <div class="row">
+          <div class="col-6 mb-3">
+           <label class="form-label fw-bold">
+            料理手順１<span class="indispensable">必須</span><div class="fw-normal", id='count_strings_one'>文字</div>
+           </label>
+           <%= f.text_field :cooking_instructions1, id:"cooking_one", placeholder:"例）トマトと鶏肉を一口大に切ります。（必須 250文字まで)", maxlength:"250" %>
+          </div>
+         </div>
+         <div class="row">
+          <div class="col-6 mb-3">
+          <label class="form-label fw-bold">
+           料理手順２<div class="fw-normal", id='count_strings_two'>文字</div>
+          </label>
+          <%= f.text_field :cooking_instructions2, id:"cooking_two", placeholder:"例）玉ねぎをくし切りにします。（任意 250文字まで)", maxlength:"250" %>
+          </div>
+         </div>
+         <div class="row">
+          <div class="col-6 mb-3">
+          <label class="form-label fw-bold">
+           料理手順３<div class="fw-normal", id='count_strings_three'>文字</div>
+          </label>
+          <%= f.text_field :cooking_instructions3, id:"cooking_three", placeholder:"例）トマト、鶏肉、玉ねぎをオリーブ油で炒めます。（任意 250文字まで)", maxlength:"250" %>
+          </div>
+         </div>
+         <div class="row">
+          <div class="col-6 mb-3">
+          <label class="form-label fw-bold">
+           料理手順４<div class="fw-normal", id='count_strings_four'>文字</div>
+          </label>
+          <%= f.text_field :cooking_instructions4, id:"cooking_four", placeholder:"例）固形コンソメを刻んで入れます。（任意 250文字まで)", maxlength:"250" %>
+          </div>
+         </div>
+         <div class="row">
+          <div class="col-6 mb-3">
+          <label class="form-label fw-bold">
+           料理手順５<div class="fw-normal", id='count_strings_five'>文字</div>
+          </label>
+          <%= f.text_field :cooking_instructions5, id:"cooking_five", placeholder:"例）仕上げに塩を少々入れます。（任意 250文字まで)", maxlength:"250" %>
+          </div>
+         </div>
+         <div class="row">
+          <div class="col-6 mb-3">
+          <label class="form-label fw-bold">
+           料理手順６<div class="fw-normal", id='count_strings_six'>文字</div>
+          </label>
+          <%= f.text_field :cooking_instructions6, id:"cooking_six", placeholder:"例）お好みでトッピングにバジル粉末をかけると美味しいです。（任意 250文字まで)", maxlength:"250" %>
+          </div>
+         </div>
+      </div> 
+    </div>
+    <%# /材料と料理手順 %>
+
+    <%# 下部ボタン %>
+    <div class="row justify-content-center"> 
+     <div class="col-6 my-5 btn-contents">
+      <button type="submit" class="btn">レシピを投稿する</button>
+     </div>
+    </div>
+    <div class="row justify-content-center">
+     <div class="col-6 mt-3 btn-contents bg-white" >
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+     </div>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
