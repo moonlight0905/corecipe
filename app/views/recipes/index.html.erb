@@ -7,16 +7,35 @@
     <!-- レシピ一覧 -->
 
     
-
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
+    <div class="col">
       <div class="card" style="width: 18rem;">
-       <img src="..." class="card-img-top" alt="画像">
+       <%= image_tag'truffles.jpg',class:"img-fluid" %>
         <div class="card-body">
-         <h5 class="card-title">レシピ名</h5>
-         <p class="card-text">コメント欄</p>
+         <h5 class="card-title fw-bold">トリュフチョコ(サンプル)</h5>
+         <p class="card-text">チョコが冷めないうちに手早く作るのがコツです。</p>
          <%=link_to '詳細ページへ', root_path, class:"show-btn" %>
         </div>
-     </div>  
-  
+     </div>
+    </div>
+
+    <% @recipes.each do |recipe| %>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+       <%= image_tag recipe.image, class: "img-fluid" %>
+       <div class="card-body">
+        <h5 class="card-title"><%= recipe.recipe_name %></h5>
+        <p class="card-text"><%= recipe.remarks %></p>
+        <%=link_to '詳細ページへ', root_path, class:"show-btn" %>
+       </div>
+      </div>
+    </div>
+    <% end %>
+
+  </div>       
+</div> 
+
 </main>
 
   
