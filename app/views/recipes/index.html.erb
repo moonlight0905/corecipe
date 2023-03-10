@@ -25,7 +25,7 @@
       <div class="card" style="width: 18rem;">
        <%= image_tag recipe.image, class: "img-fluid" %>
        <div class="card-body">
-        <h5 class="card-title"><%= recipe.recipe_name %></h5>
+        <h5 class="card-title fw-bold"><%= recipe.recipe_name %></h5>
         <p class="card-text"><%= recipe.remarks %></p>
         <%=link_to '詳細ページへ', root_path, class:"show-btn" %>
        </div>
