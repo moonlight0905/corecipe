@@ -1,4 +1,6 @@
 <h1>詳細ページ</h1>
 <p>レシピの内容</p>
+<% if user_signed_in? && @recipe.user == current_user %>
 <%=link_to '編集する', edit_recipe_path(@recipe.id), method: :get %>
-<%=link_to '削除する', root_path, method: :delete %>
+<%=link_to '削除する', recipe_path(@recipe.id), method: :delete %>
+<% end %>
