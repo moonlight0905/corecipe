@@ -1,3 +1,12 @@
-<% @recipes.each do |recipe| %>
- <%= render partial: "recipe", locals: { recipe: recipe } %>
-<% end %>
+<main>
+  <p class="fs-3 text-dark text-center my-5">検索結果</p>
+
+<div class="container">
+ <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
+  <% @recipes.each do |recipe| %>
+   <%= render partial: "recipes/recipe", locals: { recipe: recipe } %>
+  <% end %>
+ </div>       
+</div> 
+
+</main>
