@@ -25,7 +25,7 @@ class Recipe < ApplicationRecord
     def self.search(search)
       if search != ""
         search = "%#{search}%"
-        Recipe.find_by_sql(["select * from recipes where text like ? ", search])
+        Recipe.where('recipe_name LIKE(?)', search).or(Recipe.where('ingredients1 LIKE(?)', search))
       else
         Recipe.all
       end
