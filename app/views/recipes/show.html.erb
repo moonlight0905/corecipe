@@ -1,6 +1,26 @@
-<h1>詳細ページ</h1>
+<h2>詳細ページ</h2>
 <p>レシピの内容</p>
 <% if user_signed_in? && @recipe.user == current_user %>
 <%=link_to '編集する', edit_recipe_path(@recipe.id), method: :get %>
 <%=link_to '削除する', recipe_path(@recipe.id), method: :delete %>
 <% end %>
+
+<div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@recipe, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントをどうぞ(２５０文字まで)", rows: "2", maxlength:"250" %>
+        <%= form.submit "コメントを投稿する", class:"show-btn" %>
+    <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+    <div class="comments">
+      <h4>コメント一覧</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>
+</div>
