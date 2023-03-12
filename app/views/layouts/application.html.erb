@@ -25,20 +25,20 @@
         <ul class="navbar-nav me-auto">
           <% unless user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/users/sign_in">ログイン</a>
+            <%= link_to 'ログイン', new_user_session_path, class:"nav-link active" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/users/sign_up">会員登録</a>
+            <%= link_to '会員登録', new_user_registration_path, class:"nav-link active" %>
           </li>
           <% else %>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/recipes/new">レシピを投稿する</a>
+            <%= link_to 'レシピを投稿する', new_recipe_path, class:"nav-link active" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">マイページ</a>
+            <%= link_to 'マイページ', root_path, class:"nav-link active" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/users/sign_out">ログアウト</a>
+            <%= link_to 'ログアウト', destroy_user_session_path, class:"nav-link active", method: :delete %>
           </li>
           <% end %>
         </ul>
