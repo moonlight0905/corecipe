@@ -1,0 +1,7 @@
+<h2><%= @nickname %>さんの投稿レシピ一覧</h2>
+  <% @recipes.each do |recipe| %>
+    <%= image_tag recipe.image, class: "img-fluid" if recipe.image.attached? %>
+      <p><%= recipe.recipe_name %></p>
+      <p><%= recipe.remarks %></p>
+    </div>
+  <% end %>
