@@ -1,38 +1,14 @@
 <main>
   <p class="fs-3 text-dark text-center my-1">レシピ一覧</p>
-<div class="img-hidden">
-  <%= image_tag'hero_image.jpg',class:"img-fluid w-100"%>
-</div>
- 
-    <!-- レシピ一覧 -->
-
+   <div class="img-hidden">
+    <%= image_tag'hero_image.jpg',class:"img-fluid w-100"%>
+   </div>
     
 <div class="container">
   <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-       <%= image_tag'truffles.jpg',class:"img-fluid" %>
-        <div class="card-body">
-         <h5 class="card-title fw-bold">トリュフチョコ(サンプル)</h5>
-         <p class="card-text">チョコが冷めないうちに手早く作るのがコツです。</p>
-         <%=link_to '詳細ページへ', root_path, class:"show-btn" %>
-        </div>
-     </div>
-    </div>
-
     <% @recipes.each do |recipe| %>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-       <%= image_tag recipe.image, class: "img-fluid" if recipe.image.attached? %>
-       <div class="card-body">
-        <h5 class="card-title fw-bold"><%= recipe.recipe_name %></h5>
-        <p class="card-text"><%= recipe.remarks %></p>
-        <%=link_to '詳細ページへ', recipe_path(recipe.id), class:"show-btn" %>
-       </div>
-      </div>
-    </div>
+      <%= render partial: "recipe", locals: { recipe: recipe } %>
     <% end %>
-
   </div>       
 </div> 
 
