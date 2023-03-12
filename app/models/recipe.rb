@@ -25,9 +25,9 @@ class Recipe < ApplicationRecord
     def self.search(search)
       if search != ""
         search = "%#{search}%"
-        Tweet.find_by_sql(["select * from tweets where text like ? ", search])
+        Recipe.find_by_sql(["select * from recipes where text like ? ", search])
       else
-        Tweet.all
+        Recipe.all
       end
     end
 
