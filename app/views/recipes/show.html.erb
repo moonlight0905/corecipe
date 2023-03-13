@@ -1,26 +1,88 @@
-<h2>詳細ページ</h2>
-<p>レシピの内容</p>
-<% if user_signed_in? && @recipe.user == current_user %>
-<%=link_to '編集する', edit_recipe_path(@recipe.id), method: :get %>
-<%=link_to '削除する', recipe_path(@recipe.id), method: :delete %>
-<% end %>
+<main>
+  <div class="row">
+    <div class="col-6 fs-3 mt-3 text-dark text-center fw-bold">
+      レシピの詳細
+    </div>
+    <% if user_signed_in? && @recipe.user == current_user %>
+    <div class="col-3 mt-4">
+     <%=link_to '編集する', edit_recipe_path(@recipe.id), class:"show-btn px-5 fw-bold", method: :get %>  
+    </div>
+    <div class="col-3 mt-4">
+     <%=link_to '削除する', recipe_path(@recipe.id), class:"show-btn px-5 fw-bold", method: :delete %> 
+    </div>
+    <% end %>
+  </div>
 
 <div class="container">
-    <% if user_signed_in? %>
-      <%= form_with(model: [@recipe, @comment], local: true) do |form| %>
+
+  <div class="row">
+    <div class="col-3 my-3">
+     <%= image_tag @recipe.image, class: "img-show" if @recipe.image.attached? %> 
+    </div>
+    <div class="col-9 my-3">
+     <div class="row">
+      <div class="col border p-2 rounded mx-3">
+      <p class="fw-bold fs-5">レシピの名前</p>
+      <%= @recipe.recipe_name %>
+      </div>
+      <div class="col border p-2 rounded mx-3">
+      <p class="fw-bold fs-5">料理カテゴリー</p>
+      <%= @recipe.category.name %>
+      </div>
+      <div class="col border p-2 rounded mx-3">
+      <p class="fw-bold fs-5">料理の分量</p>
+      <%= @recipe.servings.name %>
+      </div>
+     </div>
+     <div class="row mt-4 border p-2 rounded">
+     <p class="fw-bold fs-5">コメント</p>
+     <%= @recipe.remarks %> 
+    </div>
+  </div>
+
+  <div class="row">
+   <div class="col my-3 border p-2 rounded mx-3">
+    <p class="fw-bold fs-4">材料</p>
+    <p>・<%= @recipe.ingredients1 %></p>
+    <p>・<%= @recipe.ingredients2 %></p>
+    <p>・<%= @recipe.ingredients3 %></p>
+    <p>・<%= @recipe.ingredients4 %></p>
+    <p>・<%= @recipe.ingredients5 %></p>
+    <p>・<%= @recipe.ingredients6 %></p>
+   </div>
+   <div class="col my-3 border p-2 rounded mx-3">
+    <p class="fw-bold fs-4">料理手順</p>
+    <p>・<%= @recipe.cooking_instructions1 %></p>
+    <p>・<%= @recipe.cooking_instructions2 %></p>
+    <p>・<%= @recipe.cooking_instructions3 %></p>
+    <p>・<%= @recipe.cooking_instructions4 %></p>
+    <p>・<%= @recipe.cooking_instructions5 %></p>
+    <p>・<%= @recipe.cooking_instructions6 %></p>
+   </div>
+  </div> 
+  
+
+  <div class="row m-2">
+    <div class="col-6 text-center">
+      <% if user_signed_in? %>
+        <%= form_with(model: [@recipe, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントをどうぞ(２５０文字まで)", rows: "2", maxlength:"250" %>
-        <%= form.submit "コメントを投稿する", class:"show-btn" %>
-    <% end %>
-    <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-    <% end %>
-    <div class="comments">
-      <h4>コメント一覧</h4>
+        <%= form.submit "コメントを投稿する", class:"show-btn fw-bold" %>
+      <% end %>
+      <% else %>
+      <strong><p>コメントを投稿するには新規登録またはログインをお願いします</p></strong>
+      <% end %>
+    </div>
+    <div class="col-6">
+     <h6 class="fw-bold">コメント一覧</h6>
       <% @comments.each do |comment| %>
         <p>
-          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <strong><%= link_to comment.user.nickname , "/users/#{comment.user_id}", class:"link_mypage" %>：</strong>
           <%= comment.text %>
         </p>
       <% end %>
     </div>
+  </div>
 </div>
+
+</main>
