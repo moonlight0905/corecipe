@@ -1,9 +1,9 @@
 <div class="container">
-  <main>
+  <main id="contents_area">
     <div class="fw-bold py-5 text-center">
       <h2>レシピの情報を入力してください</h2>
     </div>
-    <%= form_with model: @recipe, local: true do |f| %>
+    <%= form_with model: @recipe, local: true, id: "new_recipe" do |f| %>
 
     <%= render 'devise/shared/error_messages', resource: @recipe %>
 
@@ -163,7 +163,7 @@
     <%# 下部ボタン %>
     <div class="row justify-content-center"> 
      <div class="col-6 my-5 btn-contents">
-      <button type="submit" class="btn">レシピを投稿する</button>
+      <button type="submit" class="btn" id="submit_btn">レシピを投稿する</button>
      </div>
     </div>
     <div class="row justify-content-center">
