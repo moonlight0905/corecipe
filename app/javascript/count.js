@@ -13,8 +13,8 @@ function count (){
     charNum.innerHTML = `${countVal}文字`;
   });
 
-  const cookingThree  = document.getElementById("cooking_three");
-  cookingOne.addEventListener("keyup", () => {
+  const cookingThree = document.getElementById("cooking_three");
+  cookingThree.addEventListener("keyup", () => {
     const countVal = cookingThree.value.length;
     const charNum  = document.getElementById("count_strings_three");
     charNum.innerHTML = `${countVal}文字`;
