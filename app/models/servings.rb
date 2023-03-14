@@ -9,4 +9,4 @@ class Servings < ActiveHash::Base
     { id: 5, name: '大人数分' },
     { id: 6, name: 'その他' }
   ]
-  end
+end

@@ -10,4 +10,4 @@ class Category < ActiveHash::Base
     { id: 6, name: 'ソース・スープ類' },
     { id: 7, name: 'その他' }
   ]
-  end
+end
