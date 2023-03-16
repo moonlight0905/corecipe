@@ -21,16 +21,14 @@ https://corecipe.onrender.com
 家に自分が興味を持ったレシピのメモ書きが大量に貯まっていて、整理しようと思いました。また知人とおすすめレシピを教え合うことがあり、そうした情報を口頭だけでなく記録に残す形で共有できたら便利だなと思いました。
 # 洗い出した要件
 [![Image from Gyazo](https://i.gyazo.com/a250bbb5be514b2f284723515d9f9459.jpg)](https://gyazo.com/a250bbb5be514b2f284723515d9f9459)
-# 実装した機能についての画像やGIFおよびその説明
-・トップページから詳細ページへ遷移する挙動です
-[![Image from Gyazo](https://i.gyazo.com/14aa1860a25443bdf574c6953380e651.gif)](https://gyazo.com/14aa1860a25443bdf574c6953380e651)
+# 実装した機能についての画像やGIF
 ・レシピ投稿フォームの文字数カウント機能の挙動です
 [![Image from Gyazo](https://i.gyazo.com/6247c5494a79d63efaa34de25d0f76f6.gif)](https://gyazo.com/6247c5494a79d63efaa34de25d0f76f6)
 ・レシピ検索機能の画像です
 [![Image from Gyazo](https://i.gyazo.com/1d11fffa69f37285032f6dc63d71ae1c.jpg)](https://gyazo.com/1d11fffa69f37285032f6dc63d71ae1c)
 ・マイページの画像です
 [![Image from Gyazo](https://i.gyazo.com/7b8a2af5b9c69df69a9985d110b6b745.jpg)](https://gyazo.com/7b8a2af5b9c69df69a9985d110b6b745)
-・コメント投稿後の画像です（画面右下部）
+・コメント投稿後の画像です（画面最下部）
 [![Image from Gyazo](https://i.gyazo.com/93a2897226e9fc6758b84fb0c85870d8.jpg)](https://gyazo.com/93a2897226e9fc6758b84fb0c85870d8)
 # 実装予定の機能
 今後は新規レシピを投稿すると、ユーザーのLINEアカウントにお知らせが届く機能を実装予定です。
