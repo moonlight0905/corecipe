@@ -20,7 +20,7 @@ https://corecipe.onrender.com
 # アプリケーションを作成した背景
 家に自分が興味を持ったレシピのメモ書きが大量に貯まっていて、整理しようと思いました。また知人とおすすめレシピを教え合うことがあり、そうした情報を口頭だけでなく記録に残す形で共有できたら便利だなと思いました。
 # 洗い出した要件
-[![Image from Gyazo](https://i.gyazo.com/a250bbb5be514b2f284723515d9f9459.jpg)](https://gyazo.com/a250bbb5be514b2f284723515d9f9459)
+[![Image from Gyazo](https://i.gyazo.com/69a6013071764df425b613a252b5a216.jpg)](https://gyazo.com/69a6013071764df425b613a252b5a216)
 # 実装した機能についての画像やGIF
 ・レシピ投稿フォームの文字数カウント機能の挙動です
 [![Image from Gyazo](https://i.gyazo.com/6247c5494a79d63efaa34de25d0f76f6.gif)](https://gyazo.com/6247c5494a79d63efaa34de25d0f76f6)
