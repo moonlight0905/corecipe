@@ -44,20 +44,40 @@
    <div class="col my-3 border p-2 rounded mx-3">
     <p class="fw-bold fs-4">材料</p>
     <p>・<%= @recipe.ingredients1 %></p>
+    <% if @recipe.ingredients2.present? %>
     <p>・<%= @recipe.ingredients2 %></p>
+    <% end %>
+    <% if @recipe.ingredients3.present? %>
     <p>・<%= @recipe.ingredients3 %></p>
+    <% end %>
+    <% if @recipe.ingredients4.present? %>
     <p>・<%= @recipe.ingredients4 %></p>
+    <% end %>
+    <% if @recipe.ingredients5.present? %>
     <p>・<%= @recipe.ingredients5 %></p>
+    <% end %>
+    <% if @recipe.ingredients6.present? %>
     <p>・<%= @recipe.ingredients6 %></p>
+    <% end %>
    </div>
    <div class="col my-3 border p-2 rounded mx-3">
     <p class="fw-bold fs-4">料理手順</p>
     <p>・<%= @recipe.cooking_instructions1 %></p>
+    <% if @recipe.cooking_instructions2.present? %>
     <p>・<%= @recipe.cooking_instructions2 %></p>
+    <% end %>
+    <% if @recipe.cooking_instructions3.present? %>
     <p>・<%= @recipe.cooking_instructions3 %></p>
+    <% end %>
+    <% if @recipe.cooking_instructions4.present? %>
     <p>・<%= @recipe.cooking_instructions4 %></p>
+    <% end %>
+    <% if @recipe.cooking_instructions5.present? %>
     <p>・<%= @recipe.cooking_instructions5 %></p>
+    <% end %>
+    <% if @recipe.cooking_instructions6.present? %>
     <p>・<%= @recipe.cooking_instructions6 %></p>
+    <% end %>
    </div>
   </div> 
   
