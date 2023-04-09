@@ -2,7 +2,7 @@
       <div class="card mx-5" style="width: 18rem;">
        <%= image_tag recipe.image, class: "img-fluid" if recipe.image.attached? %>
        <div class="card-body">
-        <h5 class="card-title fw-bold"><%= recipe.recipe_name %></h5>
+        <h5 class="card-title fw-bold" id="recipe_name"><%= recipe.recipe_name %></h5>
         <p class="card-text"><%= recipe.remarks %></p>
         <%=link_to '詳細ページへ', recipe_path(recipe.id), class:"show-btn" %>
        </div>
